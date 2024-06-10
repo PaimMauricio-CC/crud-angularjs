@@ -1,0 +1,52 @@
+<div>
+    <h1 class="mb-4">CRUD de Pessoa</h1>
+
+    <form ng-submit="addPerson()" name="personForm" class="form-inline mb-4">
+        <div class="form-group mr-2">
+            <input type="text" ng-model="newPerson.name" class="form-control" placeholder="Nome" required>
+        </div>
+        <div class="form-group mr-2">
+            <input type="number" ng-model="newPerson.age" name="newPersonAge" class="form-control" placeholder="Idade" required min="1" oninput="this.value = Math.abs(this.value)">
+            <div ng-show="personForm.newPersonAge.$error.min" class="text-danger">
+                A idade deve ser maior que 0.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="personForm.$invalid">Adicionar Pessoa</button>
+    </form>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in persons">
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td>
+                    <button ng-click="editPerson(person)" class="btn btn-warning btn-sm mr-2">Editar</button>
+                    <button ng-click="deletePerson(person.id)" class="btn btn-danger btn-sm">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div ng-if="editedPerson" class="mt-4">
+        <h3>Editar Pessoa</h3>
+        <form ng-submit="updatePerson()" name="editPersonForm">
+            <div class="form-group">
+                <input type="text" ng-model="editedPerson.name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="number" ng-model="editedPerson.age" name="editedPersonAge" class="form-control" required min="1" oninput="this.value = Math.abs(this.value)">
+                <div ng-show="editPersonForm.editedPersonAge.$error.min" class="text-danger">
+                    A idade deve ser maior que 0.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" ng-disabled="editPersonForm.$invalid">Atualizar</button>
+        </form>
+    </div>
+</div>

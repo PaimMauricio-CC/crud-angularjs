@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="personApp">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Pessoa - AngularJS</title>
+    <!-- Incluindo a biblioteca AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <!-- Incluindo o Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluindo o Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Incluindo os scripts do seu aplicativo -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/controllers/person.controller.js"></script>
+    <script src="app/services/person.service.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div ng-view></div>
+    </div>
+</body>
+</html>
